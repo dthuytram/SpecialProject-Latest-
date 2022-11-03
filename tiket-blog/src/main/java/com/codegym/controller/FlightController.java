@@ -34,6 +34,8 @@ public class FlightController {
     @Autowired
     private IAirlineTypeService airlineTypeService;
 
+    Map<String, Page<Flight>> searchFlightList;
+
     @GetMapping("/search")
     public ResponseEntity<Page<FlightSearchDto>> searchFlight(@RequestParam(defaultValue = "") String fromFlight, String toFlight, String dateStart, String dateEnd,
                                                      @RequestParam(defaultValue = "0") int page) {
@@ -84,7 +86,7 @@ public class FlightController {
         }
         Flight flight = new Flight();
         flight.setId(id);
-//        flight.setCodeFlight(flightDto.getCode_flight());
+        flight.setCodeFlight(flightDto.getCode_flight());
         flight.setFromFlight(flightDto.getFrom_flight());
         flight.setToFlight(flightDto.getTo_flight());
         flight.setDateStart(flightDto.getDate_start());
@@ -111,9 +113,9 @@ public class FlightController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    Pageable pageable = PageRequest.of(0, 10);
+    Pageable pageable = PageRequest.of(0, 100);
 
-    Map<String, Page<FlightDTO>> searchFlightList;
+
 
     @GetMapping("/listTen")
     public ResponseEntity<List<Flight>> getTopTenFlight() {
@@ -228,7 +230,10 @@ public class FlightController {
                 default:
                     searchFlightList = flightService.searchAvailableFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
                             formSearch.getDateEnd(), "from_flight", pageable);
+
             }
+            System.out.print("có dữ liệu: ");
+            System.out.print(searchFlightList.values());
             if (searchFlightList.get("oneway").getSize() == 0) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {

@@ -1,5 +1,6 @@
 package com.codegym.repository;
 
+import com.codegym.dto.FlightDto;
 import com.codegym.dto.IDto.FlightDTO;
 import com.codegym.dto.IDto.FlightSearchDto;
 import com.codegym.dto.IDto.IFlightDto;
@@ -18,8 +19,8 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface IFlightRepository extends JpaRepository<Flight, Long> {
-    @Query(value = "SELECT from_flight FROM flight where flight.from_flight like %?1% and flight.to_flight like %?2% and flight.date_start like %?3% and flight.date_end  like %?4% ", nativeQuery = true)
-    Page<FlightSearchDto> searchFlight(String departureDestination,
+    @Query(value = "SELECT c FROM Flight c where c.fromFlight like %?1% and c.toFlight like %?2% and c.dateStart like %?3% and c.dateEnd  like %?4% ")
+    Page<Flight> searchFlight(String departureDestination,
                                  String arrivalDestination,
                                  String departureDate,
                                  String arrivalDate,

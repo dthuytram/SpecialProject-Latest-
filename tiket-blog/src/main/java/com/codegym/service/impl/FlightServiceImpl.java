@@ -16,10 +16,11 @@ import org.springframework.data.domain.Pageable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class FlightServiceImpl implements IFlightService {
-    Map<String, Page<FlightDTO>> searchFlightList = new HashMap<>();
+    Map<String, Page<Flight>> searchFlightList = new HashMap<>();
     Page departure;
     Page arrival;
 
@@ -27,7 +28,7 @@ public class FlightServiceImpl implements IFlightService {
     private IFlightRepository repository;
 
     @Override
-        public Map<String, Page<FlightDTO>> searchAvailableFlight(String departureDestination, String arrivalDestination, String departureDate, String arrivalDate, String sortOption, Pageable pageable) {
+        public Map<String, Page<Flight>> searchAvailableFlight(String departureDestination, String arrivalDestination, String departureDate, String arrivalDate, String sortOption, Pageable pageable) {
         System.out.println("====searchAvailableFlight==== ");
         System.out.println("departureDestination: " + departureDestination);
         System.out.println("arrivalDestination: " + arrivalDestination);
@@ -35,13 +36,12 @@ public class FlightServiceImpl implements IFlightService {
         System.out.println("sortOption: " + sortOption);
         arrivalDate = "2022-10-22";
         departure = repository.searchFlight(departureDestination, arrivalDestination, departureDate, "",  pageable);
-        System.out.println("depart: ");
-        System.out.println(departure);
+        System.out.println("depart: {}" );
+
         searchFlightList.put("oneway", departure);
 
         arrival = repository.searchFlight(arrivalDestination, departureDestination, "", arrivalDate,  pageable);
-        System.out.println("arrival: ");
-        System.out.println(arrival);
+        System.out.println("arrival: {}" + arrival) ;
         searchFlightList.put("twoway", arrival);
 
         return searchFlightList;

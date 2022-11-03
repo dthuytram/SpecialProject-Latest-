@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@AllArgsConstructor
 public class Flight {
 
     @Id
@@ -35,6 +34,7 @@ public class Flight {
     private AirlineType airlineType;
 
     public Flight() {
+
     }
 
     public Long getId() {
@@ -110,4 +110,16 @@ public class Flight {
     public void setAirlineType(AirlineType airlineType) {
         this.airlineType = airlineType;
     }
+
+    public Flight(Long id, String codeFlight, String fromFlight, String toFlight, String dateStart, String dateEnd, AirlineType airlineType) {
+        this.id = id;
+        this.codeFlight = codeFlight;
+        this.fromFlight = fromFlight;
+        this.toFlight = toFlight;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.airlineType = airlineType;
+    }
+
+
 }

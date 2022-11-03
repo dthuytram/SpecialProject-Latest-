@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface IFlightService {
-    Map<String, Page<FlightDTO>> searchAvailableFlight(String departureDestination, String arrivalDestination, String departureDate, String arrivalDate, String sortOption, Pageable pageable);
+    Map<String, Page<Flight>> searchAvailableFlight(String departureDestination, String arrivalDestination, String departureDate, String arrivalDate, String sortOption, Pageable pageable);
 
     List<Flight> searchFlightByDate(String date);
 
