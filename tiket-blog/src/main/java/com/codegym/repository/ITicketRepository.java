@@ -162,7 +162,7 @@ public interface ITicketRepository extends JpaRepository<Ticket, Long> {
     Ticket findTicketByCodeTicket(String codeTicket);
 
     @Modifying
-    @Query(value = "UPDATE `c1021g1_sprint_1`.`ticket` SET ticket.status_ticket =true WHERE ticket.code_ticket=?", nativeQuery = true)
+    @Query(value = "UPDATE `ticket`.`ticket` SET ticket.status_ticket =true WHERE ticket.code_ticket=?", nativeQuery = true)
     void payTicketByCodeTicket(String codeTicket);
 
     @Modifying

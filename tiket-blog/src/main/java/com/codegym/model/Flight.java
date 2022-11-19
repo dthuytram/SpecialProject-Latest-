@@ -1,5 +1,6 @@
 package com.codegym.model;
 
+import com.codegym.model.hotel.CityDefine;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 

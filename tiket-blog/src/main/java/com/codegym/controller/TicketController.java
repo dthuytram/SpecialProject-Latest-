@@ -1,6 +1,7 @@
 package com.codegym.controller;
 import com.codegym.comon.MyConstants;
 import com.codegym.comon.Security_Email;
+import com.codegym.config.sercurity.SmtpAuthenticator;
 import com.codegym.dto.*;
 import com.codegym.dto.IDto.SeatTicketDto;
 import com.codegym.dto.IDto.TicketDto;
@@ -17,6 +18,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.mail.*;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 import java.text.NumberFormat;
@@ -32,12 +34,23 @@ public class TicketController {
     @Autowired
     private JavaMailSender emailSender;
 
+    @Autowired
+    private SmtpAuthenticator smtpAuthenticator;
 
     @Autowired
     ITicketService ticketService;
 
     double totalPriceSendMail;
-    //    SonNh lấy danh sách ticket by customer Id
+
+    /**
+     * Method name: listAllTicketListByCustomerId
+     * <Pre>
+     *     Lấy danh sách ticket by customer Id
+     * </Pre>
+     * @param id
+     * @param page
+     * @return
+     */
     @GetMapping("/list/{id}")
     public ResponseEntity<Page<Ticket>> listAllTicketListByCustomerId(@PathVariable Long id, @RequestParam(value = "page", defaultValue = "0") int page) {
         Page<Ticket> ticketList = ticketService.findAllTicketsByCustomerIdPage(id, PageRequest.of(page, 5));
@@ -48,6 +61,13 @@ public class TicketController {
     }
 
     //    SonNh lấy danh sách ticket by customer Id
+
+    /**
+     *
+     * @param id
+     * @param page
+     * @return
+     */
     @GetMapping("/listHistory/{id}")
     public ResponseEntity<Page<Ticket>> listHistoryTicketListByCustomerId(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "0") int page) {
         Page<Ticket> ticketList = ticketService.findHistoryTicketsByCustomerIdPage(id, PageRequest.of(page, 5));
@@ -226,8 +246,6 @@ public class TicketController {
     }
 
 
-
-
     @PutMapping(value = "/sendmail")
     public ResponseEntity<Ticket> sendMailHtml(
             @RequestParam("finalPrice") Double finalPrice,
@@ -349,7 +367,7 @@ public class TicketController {
                     "                            <tr>\n" +
                     "                                <td align=\"left\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 10px;\">\n" +
                     "                                    <p style=\"font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;\">\n" +
-                    "                                        Thông tin đơn hàng được thanh toán\n" +
+                    "                                        THÔNG TIN ĐƠN HÀNG THANH TOÁN\n" +
                     "                                    </p>\n" +
                     "                                </td>\n" +
                     "                            </tr>\n" +
@@ -392,7 +410,7 @@ public class TicketController {
                     "                                                Tổng tiền đã thanh toán\n" +
                     "                                            </td>\n" +
                     "                                            <td width=\"40%\" align=\"left\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;\">\n" +
-                    "                                                \n" + price+" VND" +
+                    "                                                \n" + price+ " VND" +
                     "                                            </td>\n" +
                     "                                        </tr>\n" +
                     "                                    </table>\n" +
@@ -501,6 +519,7 @@ public class TicketController {
 //        String[] idList = id.split("");
         for (Long item : arrValue) {
             ticket = ticketService.getTicketBySeat(item);
+
             ticketList.add(ticket);
         }
         if (ticketList.isEmpty()) {
@@ -526,6 +545,88 @@ public class TicketController {
 //        }
 //
 //    }
+    @ResponseBody
+    @PostMapping("/sendEmail")
+    public ResponseEntity sendEmailTickets(@RequestBody TicketMailDto ticketMailDto){
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.stmp.user", "ticketairlinedtt3020@gmail.com");
+
+        //To use TLS
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.password", "dnlgrbirymxfchpp");
+        //To use SSL
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "465");
+
+        Session session = Session.getDefaultInstance(props, smtpAuthenticator);
+        String to = ticketMailDto.getEmailBuyer();
+        String from = "ticketairlinedtt3020@gmail.com";
+        String subject = "Detail Ticket" ;
+        MimeMessage msg = new MimeMessage(session);
+        MimeMessageHelper helper = new MimeMessageHelper(msg, "UTF-8");
+        try {
+            helper.setFrom(new InternetAddress(from));
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            helper.setSubject(subject);
+            String content =
+                    "<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n" +
+                            "\n" +
+                            "    <tr>\n" +
+                            "        <td align=\"center\" bgcolor=\"#e7ebef\" style=\"padding: 40px 0 30px 0;\">\n" +
+                            "            <img src=\"https://www.maulogo.com/data/001/mau-logo-may-bay-dep-01.jpg\" alt=\"Creating Email Magic\" width=\"300\" height=\"230\" style=\"display: block;\"/>\n" +
+                            "        </td>\n" +
+                            "    </tr>\n" +
+                            "\n" +
+                            "    <tr>\n" +
+                            "        <td bgcolor=\"#ffffff\" style=\"padding: 40px 30px 40px 30px;\">\n" +
+                            "            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n" +
+                            "                <tr>\n" +
+                            "                    <td>\n" +
+                            "                        Xin chào quý khách " + ticketMailDto.getEmailBuyer() + " \n" +
+                            "                    </td>\n" +
+                            "                </tr>\n" +
+                            "                <tr>\n" +
+                            "                    <td style=\"padding: 20px 0 30px 0;\">\n" +
+                            "                        <p style=\"color: brown\">Hãng hàng không C1021G1Airline chúng tôi thông báo với quý khách,vế việc\n" +
+                            "                            khách hàng đã\n" +
+                            "                            đăng ký sử dụng dịch vụ của hãng hàng không chúng tôi</p>\n" +
+                            "                    </td>\n" +
+                            "                </tr>\n" +
+                            "                <tr>\n" +
+                            "                    <td>\n" +
+                            "                        <p>quý khách đă đăng ký thành công " + ticketMailDto.getNumTicket() + "  vé và tổng số tiền là " + ticketMailDto.getSumPrice() + " VND </p>\n" +
+                            "                        <p>rất cảm ơn khách hàng đã tin tưởng và sư dụng dịch vụ của chúng tôi,rất mong trong tương lai\n" +
+                            "                            rất mong quý khách\n" +
+                            "                            vẩn tin tưởng sử dụng dịch vụ của chúng tôi</p>\n" +
+                            "                    </td>\n" +
+                            "                </tr>\n" +
+                            "            </table>\n" +
+                            "        </td>\n" +
+                            "    </tr>\n" +
+                            "    <tr>\n" +
+                            "        <td width=\"75%\">\n" +
+                            "            &reg; Someone, somewhere 2022<br/>\n" +
+                            "            Unsubscribe to this newsletter instantly\n" +
+                            "        </td>\n" +
+                            "\n" +
+                            "\n" +
+                            "    </tr>\n" +
+                            "</table>" ;
+            helper.setText(content, true);
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", 465, "ticketairlinedtt3020@gmail.com", "dnlgrbirymxfchpp");
+            transport.send(msg);
+            System.out.println("Send Email Successfully!!");
+        } catch (Exception exc) {
+            System.out.println(exc);
+        }
+        return new ResponseEntity(null, HttpStatus.OK);
+    }
 
     @ResponseBody
     @PostMapping("/sendEmailTicket")
@@ -832,4 +933,7 @@ public class TicketController {
         }
         return new ResponseEntity<>(ticketDtos, HttpStatus.OK);
     }
+
+
+
 }
