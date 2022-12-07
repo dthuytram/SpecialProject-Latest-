@@ -1,6 +1,6 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.model.EmployeeType;
+import com.tramdt.model.EmployeeType;
 
 import java.util.List;
 

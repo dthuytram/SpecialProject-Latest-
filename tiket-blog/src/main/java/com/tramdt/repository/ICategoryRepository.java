@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.model.Category;
+import com.tramdt.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Modifying;

@@ -1,4 +1,4 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

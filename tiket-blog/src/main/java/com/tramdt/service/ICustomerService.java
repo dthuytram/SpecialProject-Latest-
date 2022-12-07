@@ -1,11 +1,14 @@
-package com.codegym.service;
+package com.tramdt.service;
 
 
-import com.codegym.model.Customer;
+import com.tramdt.dto.TokenDto;
+import com.tramdt.model.Account;
+import com.tramdt.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.codegym.dto.CustomerDto;
+import com.tramdt.dto.CustomerDto;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 import java.util.List;
@@ -25,6 +28,7 @@ public interface ICustomerService {
     Boolean checkIdCustomer(Long id);
 
     void save(CustomerDto customerDto);
+
 
 
     void update(CustomerDto customerDto);
@@ -77,4 +81,11 @@ public interface ICustomerService {
     Integer findByIdCardNot(Long id, String idCardCustomer);
 
     Customer findCustomerByEmail(String email);
+
+
+    UserDetails findCustomerByName(String email);
+
+    Customer findAccountByEmailJoinCustomer(String email);
+
+    Customer getProfileGoogle(TokenDto tokenDto);
 }

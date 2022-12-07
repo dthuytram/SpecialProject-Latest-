@@ -1,4 +1,4 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
 public class EditTicketDto {
     private Long id;

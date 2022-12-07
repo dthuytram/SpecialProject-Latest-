@@ -1,10 +1,10 @@
-package com.codegym.service;
+package com.tramdt.service;
 
 
-import com.codegym.dto.NewsDto;
-import com.codegym.model.News;
+import com.tramdt.dto.NewsDto;
+import com.tramdt.model.News;
 
-import com.codegym.model.News;
+import com.tramdt.model.News;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

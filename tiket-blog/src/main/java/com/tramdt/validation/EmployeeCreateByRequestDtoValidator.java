@@ -1,6 +1,6 @@
-package com.codegym.validation;
+package com.tramdt.validation;
 
-import com.codegym.dto.EmployeeDto;
+import com.tramdt.dto.EmployeeDto;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

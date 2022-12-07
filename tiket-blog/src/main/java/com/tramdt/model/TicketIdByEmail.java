@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.tramdt.model;
 
 public class TicketIdByEmail {
     private String role;

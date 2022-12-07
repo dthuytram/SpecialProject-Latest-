@@ -1,6 +1,6 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.model.CustomerType;
+import com.tramdt.model.CustomerType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.codegym.comon;
+package com.tramdt.comon;
 
 public class MyConstants {
     public static final String MY_EMAIL="tramdang.dut@gmail.com";

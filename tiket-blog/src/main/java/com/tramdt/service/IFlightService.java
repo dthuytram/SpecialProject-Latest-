@@ -1,10 +1,10 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.dto.FlightDto;
-import com.codegym.dto.IDto.FlightDTO;
-import com.codegym.dto.IDto.FlightSearchDto;
-import com.codegym.dto.IDto.IFlightDto;
-import com.codegym.model.Flight;
+import com.tramdt.dto.FlightDto;
+import com.tramdt.dto.IDto.FlightDTO;
+import com.tramdt.dto.IDto.FlightSearchDto;
+import com.tramdt.dto.IDto.IFlightDto;
+import com.tramdt.model.Flight;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

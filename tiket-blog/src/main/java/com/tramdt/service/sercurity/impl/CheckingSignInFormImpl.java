@@ -1,7 +1,7 @@
-package com.codegym.service.sercurity.impl;
+package com.tramdt.service.sercurity.impl;
 
-import com.codegym.model.SignForm;
-import com.codegym.service.sercurity.ICheckingSignUpForm;
+import com.tramdt.model.SignForm;
+import com.tramdt.service.sercurity.ICheckingSignUpForm;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;

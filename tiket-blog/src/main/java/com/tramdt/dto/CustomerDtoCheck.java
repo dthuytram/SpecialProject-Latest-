@@ -1,6 +1,6 @@
-package com.codegym.dto;
-import com.codegym.model.Countries;
-import com.codegym.model.CustomerType;
+package com.tramdt.dto;
+import com.tramdt.model.Countries;
+import com.tramdt.model.CustomerType;
 import javax.validation.constraints.*;
 
 public class CustomerDtoCheck {

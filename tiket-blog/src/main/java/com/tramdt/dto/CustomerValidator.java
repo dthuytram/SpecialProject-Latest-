@@ -1,8 +1,8 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.controller.CustomerController;
-import com.codegym.dto.IDto.ValidatorCustomer;
-import com.codegym.service.ICustomerService;
+import com.tramdt.controller.CustomerController;
+import com.tramdt.dto.IDto.ValidatorCustomer;
+import com.tramdt.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;

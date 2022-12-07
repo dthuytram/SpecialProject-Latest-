@@ -1,6 +1,6 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
-import com.codegym.dto.FlightValidator;
+import com.tramdt.dto.FlightValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

@@ -1,18 +1,18 @@
-package com.codegym.service.impl;
-import com.codegym.dto.CustomerDto;
-import com.codegym.model.Customer;
-import com.codegym.repository.ICustomerRepository;
+package com.tramdt.service.impl;
+import com.tramdt.dto.CustomerDto;
+import com.tramdt.dto.TokenDto;
+import com.tramdt.model.Customer;
+import com.tramdt.repository.ICustomerRepository;
 
-import com.codegym.service.ICustomerService;
+import com.tramdt.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 
 
 @Service
@@ -61,10 +61,9 @@ public class CustomerServiceImpl implements ICustomerService {
                 customerDto.getIdCardCustomer(),
                 customerDto.getBirthdayCustomer(),
                 customerDto.getAddressCustomer(),
-                customerDto.getCustomerType(),
-                customerDto.getCountries(),
                 true);
     }
+
 
     @Override
     public void update(CustomerDto customerDto) {
@@ -186,11 +185,25 @@ public class CustomerServiceImpl implements ICustomerService {
         return iCustomerRepository.findByIdCardNot( id,  idCardCustomer);
     }
 
-
-
     @Override
     public Customer findCustomerByEmail(String email) {
         return this.iCustomerRepository.findCustomerByEmail(email);
     }
+
+    @Override
+    public UserDetails findCustomerByName(String email) {
+        return this.iCustomerRepository.findCustomerByName(email);
+    }
+
+    @Override
+    public Customer findAccountByEmailJoinCustomer(String email) {
+        return iCustomerRepository.findAccountByEmailJoinCustomer(email).orElse(null);
+    }
+
+    @Override
+    public Customer getProfileGoogle(TokenDto tokenDto) {
+        return null;
+    }
+
 
 }

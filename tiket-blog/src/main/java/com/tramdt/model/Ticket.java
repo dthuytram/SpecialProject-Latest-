@@ -1,7 +1,7 @@
-package com.codegym.model;
-import com.codegym.model.Customer;
-import com.codegym.model.Employee;
-import com.codegym.model.Flight;
+package com.tramdt.model;
+import com.tramdt.model.Customer;
+import com.tramdt.model.Employee;
+import com.tramdt.model.Flight;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;

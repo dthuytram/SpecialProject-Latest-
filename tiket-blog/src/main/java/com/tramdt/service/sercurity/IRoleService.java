@@ -1,6 +1,6 @@
-package com.codegym.service.sercurity;
+package com.tramdt.service.sercurity;
 
-import com.codegym.model.Role;
+import com.tramdt.model.Role;
 
 public interface IRoleService {
     Role findByRole(String role);

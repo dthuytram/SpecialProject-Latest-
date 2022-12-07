@@ -1,6 +1,5 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
-import com.codegym.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.List;
 
 public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired

@@ -1,10 +1,10 @@
-package com.codegym.model.hotel;
+package com.tramdt.model.hotel;
 
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.codegym.model.Countries;
+import com.tramdt.model.Countries;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**

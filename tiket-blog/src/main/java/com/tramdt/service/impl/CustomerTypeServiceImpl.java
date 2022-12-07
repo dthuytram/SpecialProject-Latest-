@@ -1,9 +1,9 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
 
-import com.codegym.model.CustomerType;
-import com.codegym.repository.ICustomerTypeRepository;
-import com.codegym.service.ICustomerTypeService;
+import com.tramdt.model.CustomerType;
+import com.tramdt.repository.ICustomerTypeRepository;
+import com.tramdt.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

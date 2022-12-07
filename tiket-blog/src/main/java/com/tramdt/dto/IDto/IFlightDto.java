@@ -1,4 +1,4 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
 public interface IFlightDto {
     Long getId();

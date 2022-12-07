@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.tramdt.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

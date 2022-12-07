@@ -1,5 +1,5 @@
-package com.codegym.dto;
-import com.codegym.model.Category;
+package com.tramdt.dto;
+import com.tramdt.model.Category;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;

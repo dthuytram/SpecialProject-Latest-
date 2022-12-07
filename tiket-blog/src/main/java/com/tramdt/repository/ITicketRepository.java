@@ -1,10 +1,10 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
 
-import com.codegym.dto.IDto.SeatTicketDto;
+import com.tramdt.dto.IDto.SeatTicketDto;
 
-import com.codegym.dto.IDto.TicketDto;
-import com.codegym.model.Ticket;
+import com.tramdt.dto.IDto.TicketDto;
+import com.tramdt.model.Ticket;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

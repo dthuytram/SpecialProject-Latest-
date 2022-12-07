@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.tramdt.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;

@@ -1,10 +1,10 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.dto.IDto.IReport;
-import com.codegym.dto.IDto.IReportAirlineType;
-import com.codegym.dto.IDto.IReportEmployee;
-import com.codegym.repository.IReportRepository;
-import com.codegym.service.IReportService;
+import com.tramdt.dto.IDto.IReport;
+import com.tramdt.dto.IDto.IReportAirlineType;
+import com.tramdt.dto.IDto.IReportEmployee;
+import com.tramdt.repository.IReportRepository;
+import com.tramdt.service.IReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

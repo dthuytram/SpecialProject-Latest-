@@ -1,7 +1,7 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.dto.IDto.ValidatorFlight;
-import com.codegym.model.AirlineType;
+import com.tramdt.dto.IDto.ValidatorFlight;
+import com.tramdt.model.AirlineType;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

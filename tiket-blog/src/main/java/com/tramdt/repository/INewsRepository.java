@@ -1,5 +1,5 @@
-package com.codegym.repository;
-import com.codegym.model.News;
+package com.tramdt.repository;
+import com.tramdt.model.News;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

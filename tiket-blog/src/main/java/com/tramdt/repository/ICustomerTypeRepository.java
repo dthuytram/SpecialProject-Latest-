@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.model.CustomerType;
+import com.tramdt.model.CustomerType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

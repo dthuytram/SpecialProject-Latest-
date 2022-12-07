@@ -1,8 +1,8 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.comon.MyConstants;
-import com.codegym.config.sercurity.Config;
-import com.codegym.dto.PayInfo;
+import com.tramdt.comon.MyConstants;
+import com.tramdt.config.sercurity.Config;
+import com.tramdt.dto.PayInfo;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,9 +1,9 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
 
-import com.codegym.model.Category;
-import com.codegym.repository.ICategoryRepository;
-import com.codegym.service.ICategoryService;
+import com.tramdt.model.Category;
+import com.tramdt.repository.ICategoryRepository;
+import com.tramdt.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;

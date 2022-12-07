@@ -1,7 +1,7 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
-import com.codegym.model.Countries;
-import com.codegym.model.CustomerType;
+import com.tramdt.model.Countries;
+import com.tramdt.model.CustomerType;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;

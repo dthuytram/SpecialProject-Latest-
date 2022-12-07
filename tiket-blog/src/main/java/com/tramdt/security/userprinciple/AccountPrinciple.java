@@ -1,7 +1,7 @@
-package com.codegym.security.userprinciple;
+package com.tramdt.security.userprinciple;
 
-import com.codegym.model.Account;
-import com.codegym.model.Countries;
+import com.tramdt.model.Account;
+import com.tramdt.model.Countries;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

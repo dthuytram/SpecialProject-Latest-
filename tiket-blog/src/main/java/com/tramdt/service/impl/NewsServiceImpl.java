@@ -1,8 +1,8 @@
-package com.codegym.service.impl;
-import com.codegym.dto.NewsDto;
-import com.codegym.model.News;
-import com.codegym.repository.INewsRepository;
-import com.codegym.service.INewsService;
+package com.tramdt.service.impl;
+import com.tramdt.dto.NewsDto;
+import com.tramdt.model.News;
+import com.tramdt.repository.INewsRepository;
+import com.tramdt.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

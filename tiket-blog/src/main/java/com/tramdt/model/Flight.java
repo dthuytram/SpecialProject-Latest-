@@ -1,6 +1,6 @@
-package com.codegym.model;
+package com.tramdt.model;
 
-import com.codegym.model.hotel.CityDefine;
+import com.tramdt.model.hotel.CityDefine;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 

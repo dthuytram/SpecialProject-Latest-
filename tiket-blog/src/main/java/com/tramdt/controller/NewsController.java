@@ -1,10 +1,11 @@
-package com.codegym.controller;
-import com.codegym.dto.NewsDto;
-import com.codegym.dto.NewsDtoA;
-import com.codegym.model.Category;
-import com.codegym.model.News;
-import com.codegym.service.ICategoryService;
-import com.codegym.service.INewsService;
+package com.tramdt.controller;
+
+import com.tramdt.dto.NewsDto;
+import com.tramdt.dto.NewsDtoA;
+import com.tramdt.model.Category;
+import com.tramdt.model.News;
+import com.tramdt.service.ICategoryService;
+import com.tramdt.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

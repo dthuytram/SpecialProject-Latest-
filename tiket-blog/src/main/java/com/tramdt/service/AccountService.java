@@ -1,4 +1,4 @@
-package com.codegym.service;
+package com.tramdt.service;
 
 public interface AccountService {
 }

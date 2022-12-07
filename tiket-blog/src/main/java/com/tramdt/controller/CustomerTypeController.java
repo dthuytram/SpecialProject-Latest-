@@ -1,7 +1,7 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
-import com.codegym.model.CustomerType;
-import com.codegym.service.ICustomerTypeService;
+import com.tramdt.model.CustomerType;
+import com.tramdt.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

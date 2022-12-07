@@ -1,11 +1,11 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.dto.EditTicketDto;
-import com.codegym.dto.IDto.SeatTicketDto;
-import com.codegym.dto.IDto.TicketDto;
-import com.codegym.model.Flight;
-import com.codegym.model.SeatType;
-import com.codegym.model.Ticket;
+import com.tramdt.dto.EditTicketDto;
+import com.tramdt.dto.IDto.SeatTicketDto;
+import com.tramdt.dto.IDto.TicketDto;
+import com.tramdt.model.Flight;
+import com.tramdt.model.SeatType;
+import com.tramdt.model.Ticket;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.Pageable;

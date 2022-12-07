@@ -1,10 +1,10 @@
-package com.codegym.service.impl;
-import com.codegym.dto.EmployeeDto;
-import com.codegym.dto.EmployeeDtoCheck;
-import com.codegym.dto.IDto.EmployeeFindIdDto;
-import com.codegym.model.Employee;
-import com.codegym.repository.IEmployeeRepository;
-import com.codegym.service.IEmployeeService;
+package com.tramdt.service.impl;
+import com.tramdt.dto.EmployeeDto;
+import com.tramdt.dto.EmployeeDtoCheck;
+import com.tramdt.dto.IDto.EmployeeFindIdDto;
+import com.tramdt.model.Employee;
+import com.tramdt.repository.IEmployeeRepository;
+import com.tramdt.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

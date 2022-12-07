@@ -1,7 +1,7 @@
-package com.codegym.service.sercurity.impl;
+package com.tramdt.service.sercurity.impl;
 
-import com.codegym.model.PasswordForgettedForm;
-import com.codegym.service.sercurity.ICheckingForgetedPsForm;
+import com.tramdt.model.PasswordForgettedForm;
+import com.tramdt.service.sercurity.ICheckingForgetedPsForm;
 
 public class CheckingForgettedPsForm implements ICheckingForgetedPsForm {
     @Override

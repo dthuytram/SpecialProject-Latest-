@@ -1,6 +1,6 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
-import com.codegym.dto.CustomerDto;
+import com.tramdt.dto.CustomerDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

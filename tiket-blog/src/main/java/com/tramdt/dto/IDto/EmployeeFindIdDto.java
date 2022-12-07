@@ -1,4 +1,4 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
 import javax.validation.constraints.NotNull;
 

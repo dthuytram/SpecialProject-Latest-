@@ -1,16 +1,20 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
-import com.codegym.security.userprinciple.AccountPrinciple;
+import com.tramdt.model.Customer;
+import com.tramdt.security.userprinciple.AccountPrinciple;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JwtTokenUtil {
-    private String jwtSecret = "c1021g1";
+    private String jwtSecret = "tramdt";
     private int jwtExpiration = 86400000;
     public String createToken(Authentication authentication){
         AccountPrinciple accountPrinciple = (AccountPrinciple) authentication.getPrincipal();
@@ -33,4 +37,6 @@ public class JwtTokenUtil {
         String email = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
         return email;
     }
+
+
 }

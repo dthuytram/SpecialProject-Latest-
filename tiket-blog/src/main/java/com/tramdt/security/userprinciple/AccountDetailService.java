@@ -1,7 +1,7 @@
-package com.codegym.security.userprinciple;
+package com.tramdt.security.userprinciple;
 
-import com.codegym.model.Account;
-import com.codegym.service.sercurity.IAccountService;
+import com.tramdt.model.Account;
+import com.tramdt.service.sercurity.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

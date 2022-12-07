@@ -1,6 +1,6 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
-import com.codegym.comon.Security_Email;
+import com.tramdt.comon.Security_Email;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
-package com.codegym.service.sercurity.impl;
+package com.tramdt.service.sercurity.impl;
 
-import com.codegym.model.Role;
-import com.codegym.repository.sercurity.RoleRepository;
-import com.codegym.service.sercurity.IRoleService;
+import com.tramdt.model.Role;
+import com.tramdt.repository.sercurity.RoleRepository;
+import com.tramdt.service.sercurity.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

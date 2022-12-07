@@ -1,6 +1,6 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.model.Countries;
+import com.tramdt.model.Countries;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.Errors;

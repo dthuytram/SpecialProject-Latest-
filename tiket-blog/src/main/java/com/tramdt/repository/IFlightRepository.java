@@ -1,10 +1,10 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.dto.FlightDto;
-import com.codegym.dto.IDto.FlightDTO;
-import com.codegym.dto.IDto.FlightSearchDto;
-import com.codegym.dto.IDto.IFlightDto;
-import com.codegym.model.Flight;
+import com.tramdt.dto.FlightDto;
+import com.tramdt.dto.IDto.FlightDTO;
+import com.tramdt.dto.IDto.FlightSearchDto;
+import com.tramdt.dto.IDto.IFlightDto;
+import com.tramdt.model.Flight;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,7 +29,6 @@ public interface IFlightRepository extends JpaRepository<Flight, Long> {
 
     List<Flight> findFlightsByDateStartContains(String date);
 
-//tronghd tạoc câu lệnh query thêm mới
     @Transactional
     @Modifying
     @Query(value = "INSERT INTO Flight(code_flight,from_flight,to_flight,date_start,date_end,id_airline_type,del_flag_flight)" +
@@ -48,7 +47,7 @@ public interface IFlightRepository extends JpaRepository<Flight, Long> {
             "FROM flight WHERE id=?", nativeQuery = true)
     Flight findByIdFlight(Long id);
 
-    //tronghd tạoc câu lệnh query chỉnh sửa chuyến bay
+    //TẠO câu lệnh query chỉnh sửa chuyến bay
     @Transactional
     @Modifying
     @Query(value = "UPDATE Flight AS f SET f.code_flight = ?1 , f.from_flight = ?2, f.to_flight = ?3, f.date_start = ?4," +
@@ -56,7 +55,7 @@ public interface IFlightRepository extends JpaRepository<Flight, Long> {
     void updateFlight(String codeFlight, String fromFlight, String toFlight, String dateStart,
                       String dateEnd, Long airlineType, Boolean delFlagFlight, Long id);
 
-//    tronghd lấy giá trị validate trùng nhau
+//    Lấy giá trị validate trùng nhau
     @Query(value = "select count(code_flight) from flight where code_flight = ?", nativeQuery = true)
     Integer finByCodeFlight(String codeFlight);
 

@@ -1,8 +1,8 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.model.EmployeeType;
-import com.codegym.repository.IEmployeeTypeRepository;
-import com.codegym.service.IEmployeeTypeService;
+import com.tramdt.model.EmployeeType;
+import com.tramdt.repository.IEmployeeTypeRepository;
+import com.tramdt.service.IEmployeeTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

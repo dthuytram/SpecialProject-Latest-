@@ -1,13 +1,13 @@
-package com.codegym;
+package com.tramdt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class C1021G1Sprint1Application {
+public class DTT3020Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(C1021G1Sprint1Application.class, args);
+        SpringApplication.run(DTT3020Application.class, args);
     }
 
 }

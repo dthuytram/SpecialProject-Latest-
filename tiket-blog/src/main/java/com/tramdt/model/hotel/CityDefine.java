@@ -1,7 +1,7 @@
-package com.codegym.model.hotel;
+package com.tramdt.model.hotel;
 
-import com.codegym.model.Flight;
-import com.codegym.model.Seat;
+import com.tramdt.model.Flight;
+import com.tramdt.model.Seat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

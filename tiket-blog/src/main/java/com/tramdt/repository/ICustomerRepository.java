@@ -1,17 +1,15 @@
-package com.codegym.repository;
-import com.codegym.model.Customer;
-import com.codegym.dto.CustomerDto;
-import com.codegym.model.Countries;
-import com.codegym.model.Customer;
+package com.tramdt.repository;
+import com.tramdt.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -80,8 +78,6 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
                       String idCardCustomer,
                       String birthdayCustomer,
                       String addressCustomer,
-                      Long customerType,
-                      Long countries,
                       Boolean delFlagCustomer);
 
 
@@ -188,6 +184,10 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
             "where customer.id = :id", nativeQuery = true)
     Customer findCustomerByID(@Param("id") Long id);
 
+    @Query(value = "SELECT accounts.id,address, birthday, confirm_password, email, full_name, gender," +
+            "id_card,password, phone, country_id, customer.image_customer FROM accounts " +
+            "inner join customer a WHERE email =?",nativeQuery = true)
+    Optional<Customer> findAccountByEmailJoinCustomer(String email);
 
     @Query(value = "select customer.id, customer.name_customer, customer.gender_customer, customer.birthday_customer, customer.email_customer, customer.phone_customer, " +
             "customer.address_customer, customer.id_country ,customer.id_customer_type, customer.id_card_customer, customer.del_flag_customer, customer.image_customer, customer.point_customer " +
@@ -257,7 +257,8 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
     @Query(value = "select count(customer.id_card_customer) from customer where not customer.id =?1 and id_card_customer = ?2", nativeQuery = true)
     Integer findByIdCardNot(Long id, String idCardCustomer);
 
-
+    @Query(value=" select * from customer where name_customer = ?" , nativeQuery = true)
+    UserDetails findCustomerByName(@Param("name_customer") String name_customer);
 
 
     @Query(value=" select * from customer where email_customer = ?" , nativeQuery = true)

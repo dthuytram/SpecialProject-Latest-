@@ -1,16 +1,16 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
 
-import com.codegym.dto.CustomerDto;
-import com.codegym.dto.CustomerDtoCheck;
-import com.codegym.dto.CustomerPersonalInfoDto;
-import com.codegym.model.Customer;
-import com.codegym.service.ICustomerService;
+import com.tramdt.dto.CustomerDto;
+import com.tramdt.dto.CustomerDtoCheck;
+import com.tramdt.dto.CustomerPersonalInfoDto;
+import com.tramdt.model.Customer;
+import com.tramdt.service.ICustomerService;
 import org.springframework.web.bind.annotation.*;
 
 
-import com.codegym.model.CustomerType;
-import com.codegym.service.ICustomerTypeService;
+import com.tramdt.model.CustomerType;
+import com.tramdt.service.ICustomerTypeService;
 
 import org.springframework.beans.BeanUtils;
 

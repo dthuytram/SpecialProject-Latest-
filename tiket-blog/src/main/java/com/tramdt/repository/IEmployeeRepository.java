@@ -1,8 +1,8 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.dto.IDto.EmployeeFindIdDto;
-import com.codegym.model.Employee;
-import com.codegym.model.EmployeeType;
+import com.tramdt.dto.IDto.EmployeeFindIdDto;
+import com.tramdt.model.Employee;
+import com.tramdt.model.EmployeeType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +17,6 @@ import java.util.Optional;
 @Transactional
 public interface IEmployeeRepository extends JpaRepository<Employee, Long> {
 
-    //    PhuHDQ
     @Query(value = "SELECT id, address_employee, code_employee, birthday_employee, del_flag_employee, email_employee, gender_employee, name_employee, phone_employee, id_employee_type \n" +
             "FROM `employee` WHERE del_flag_employee = '1'", nativeQuery = true)
     Page<Employee> findAllEmployee(Pageable pageable);

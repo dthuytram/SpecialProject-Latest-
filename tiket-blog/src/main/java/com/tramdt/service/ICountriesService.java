@@ -1,6 +1,6 @@
-package com.codegym.service;
+package com.tramdt.service;
 
-import com.codegym.model.Countries;
+import com.tramdt.model.Countries;
 
 import java.util.List;
 

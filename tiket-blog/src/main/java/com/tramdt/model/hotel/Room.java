@@ -1,4 +1,4 @@
-package com.codegym.model.hotel;
+package com.tramdt.model.hotel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

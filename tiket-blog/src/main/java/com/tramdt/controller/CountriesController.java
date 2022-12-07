@@ -1,6 +1,6 @@
-package com.codegym.controller;
-import com.codegym.model.Countries;
-import com.codegym.service.ICountriesService;
+package com.tramdt.controller;
+import com.tramdt.model.Countries;
+import com.tramdt.service.ICountriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

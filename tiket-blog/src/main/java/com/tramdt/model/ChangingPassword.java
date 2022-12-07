@@ -1,4 +1,4 @@
-package com.codegym.model;
+package com.tramdt.model;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

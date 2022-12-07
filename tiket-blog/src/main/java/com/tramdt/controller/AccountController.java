@@ -1,4 +1,4 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
 public class AccountController {
 

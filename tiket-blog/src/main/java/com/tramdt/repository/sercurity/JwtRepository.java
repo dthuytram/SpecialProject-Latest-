@@ -1,4 +1,4 @@
-package com.codegym.repository.sercurity;
+package com.tramdt.repository.sercurity;
 
 public class JwtRepository {
 }

@@ -1,4 +1,4 @@
-package com.codegym.config.sercurity;
+package com.tramdt.config.sercurity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

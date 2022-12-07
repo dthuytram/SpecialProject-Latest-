@@ -1,4 +1,4 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

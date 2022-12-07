@@ -1,6 +1,6 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.dto.IDto.ValidatorCustomer;
+import com.tramdt.dto.IDto.ValidatorCustomer;
 
 import javax.validation.constraints.*;
 
@@ -31,7 +31,16 @@ public class CustomerDto {
     private String emailCustomer;
     @NotBlank(message = "Vui lòng nhập địa chỉ!")
     private String addressCustomer;
+    private String imageCustomer;
     private Boolean delFlagCustomer;
+
+    public String getImageCustomer() {
+        return imageCustomer;
+    }
+
+    public void setImageCustomer(String imageCustomer) {
+        this.imageCustomer = imageCustomer;
+    }
 
     //    @JsonProperty("data")
     @NotNull(message = "Vui lòng chọn quốc gia.")

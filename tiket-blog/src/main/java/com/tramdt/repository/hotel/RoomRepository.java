@@ -1,7 +1,7 @@
-package com.codegym.repository.hotel;
+package com.tramdt.repository.hotel;
 
-import com.codegym.model.Employee;
-import com.codegym.model.hotel.Room;
+import com.tramdt.model.Employee;
+import com.tramdt.model.hotel.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

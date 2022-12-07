@@ -1,6 +1,6 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.model.EmployeeType;
+import com.tramdt.model.EmployeeType;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

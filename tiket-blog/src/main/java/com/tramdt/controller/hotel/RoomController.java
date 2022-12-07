@@ -1,7 +1,7 @@
-package com.codegym.controller.hotel;
+package com.tramdt.controller.hotel;
 
-import com.codegym.model.hotel.Room;
-import com.codegym.repository.hotel.RoomRepository;
+import com.tramdt.model.hotel.Room;
+import com.tramdt.repository.hotel.RoomRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

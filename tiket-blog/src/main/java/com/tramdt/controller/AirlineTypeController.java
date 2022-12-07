@@ -1,7 +1,7 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
-import com.codegym.model.AirlineType;
-import com.codegym.service.IAirlineTypeService;
+import com.tramdt.model.AirlineType;
+import com.tramdt.service.IAirlineTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

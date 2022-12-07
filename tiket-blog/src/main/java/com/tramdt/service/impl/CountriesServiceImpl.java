@@ -1,8 +1,8 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.model.Countries;
-import com.codegym.repository.ICountriesRepository;
-import com.codegym.service.ICountriesService;
+import com.tramdt.model.Countries;
+import com.tramdt.repository.ICountriesRepository;
+import com.tramdt.service.ICountriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

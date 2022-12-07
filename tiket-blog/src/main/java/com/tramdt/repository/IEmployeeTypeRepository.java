@@ -1,6 +1,6 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.model.EmployeeType;
+import com.tramdt.model.EmployeeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;

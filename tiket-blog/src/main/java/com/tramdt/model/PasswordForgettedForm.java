@@ -1,7 +1,7 @@
-package com.codegym.model;
+package com.tramdt.model;
 
-import com.codegym.service.sercurity.ICheckingForgetedPsForm;
-import com.codegym.service.sercurity.ICheckingSignUpForm;
+import com.tramdt.service.sercurity.ICheckingForgetedPsForm;
+import com.tramdt.service.sercurity.ICheckingSignUpForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

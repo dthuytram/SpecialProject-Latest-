@@ -1,4 +1,4 @@
-package com.codegym.service.sercurity;
+package com.tramdt.service.sercurity;
 
 public class JwtUserDetailService {
 }

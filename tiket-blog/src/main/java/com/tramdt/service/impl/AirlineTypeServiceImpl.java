@@ -1,8 +1,8 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.model.AirlineType;
-import com.codegym.repository.IAirlineTypeRepository;
-import com.codegym.service.IAirlineTypeService;
+import com.tramdt.model.AirlineType;
+import com.tramdt.repository.IAirlineTypeRepository;
+import com.tramdt.service.IAirlineTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

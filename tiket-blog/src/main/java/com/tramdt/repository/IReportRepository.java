@@ -1,9 +1,9 @@
-package com.codegym.repository;
+package com.tramdt.repository;
 
-import com.codegym.dto.IDto.IReport;
-import com.codegym.dto.IDto.IReportAirlineType;
-import com.codegym.dto.IDto.IReportEmployee;
-import com.codegym.model.Ticket;
+import com.tramdt.dto.IDto.IReport;
+import com.tramdt.dto.IDto.IReportAirlineType;
+import com.tramdt.dto.IDto.IReportEmployee;
+import com.tramdt.model.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;

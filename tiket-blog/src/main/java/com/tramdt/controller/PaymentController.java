@@ -1,7 +1,7 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
-import com.codegym.dto.PayInfo;
-import com.codegym.service.PayService;
+import com.tramdt.dto.PayInfo;
+import com.tramdt.service.PayService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,15 +1,15 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.dto.EditTicketDto;
-import com.codegym.dto.IDto.SeatTicketDto;
-import com.codegym.dto.IDto.TicketDto;
-import com.codegym.model.Flight;
-import com.codegym.model.SeatType;
-import com.codegym.model.Ticket;
-import com.codegym.repository.IFlightRepository;
-import com.codegym.repository.ISeatTypeRepository;
-import com.codegym.repository.ITicketRepository;
-import com.codegym.service.ITicketService;
+import com.tramdt.dto.EditTicketDto;
+import com.tramdt.dto.IDto.SeatTicketDto;
+import com.tramdt.dto.IDto.TicketDto;
+import com.tramdt.model.Flight;
+import com.tramdt.model.SeatType;
+import com.tramdt.model.Ticket;
+import com.tramdt.repository.IFlightRepository;
+import com.tramdt.repository.ISeatTypeRepository;
+import com.tramdt.repository.ITicketRepository;
+import com.tramdt.service.ITicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

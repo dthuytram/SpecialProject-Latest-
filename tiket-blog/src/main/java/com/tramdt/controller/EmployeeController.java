@@ -1,12 +1,13 @@
-package com.codegym.controller;
-import com.codegym.dto.EmployeeDto;
-import com.codegym.dto.EmployeeDtoCheck;
-import com.codegym.dto.IDto.EmployeeFindIdDto;
-import com.codegym.model.Employee;
-import com.codegym.model.EmployeeType;
-import com.codegym.service.IEmployeeService;
-import com.codegym.service.IEmployeeTypeService;
-import com.codegym.validation.EmployeeCreateByRequestDtoValidator;
+package com.tramdt.controller;
+
+import com.tramdt.dto.EmployeeDto;
+import com.tramdt.dto.EmployeeDtoCheck;
+import com.tramdt.dto.IDto.EmployeeFindIdDto;
+import com.tramdt.model.Employee;
+import com.tramdt.model.EmployeeType;
+import com.tramdt.validation.EmployeeCreateByRequestDtoValidator;
+import com.tramdt.service.IEmployeeService;
+import com.tramdt.service.IEmployeeTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -84,7 +85,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    //SonDCM
+
     @Autowired
     private EmployeeCreateByRequestDtoValidator employeeCreateByRequestDtoValidator;
 

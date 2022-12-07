@@ -1,6 +1,6 @@
-package com.codegym.service.sercurity;
+package com.tramdt.service.sercurity;
 
-import com.codegym.model.PasswordForgettedForm;
+import com.tramdt.model.PasswordForgettedForm;
 
 public interface ICheckingForgetedPsForm {
     String checkPs(PasswordForgettedForm form);

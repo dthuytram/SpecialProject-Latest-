@@ -1,9 +1,9 @@
-package com.codegym.controller;
+package com.tramdt.controller;
 
-import com.codegym.dto.IDto.IReport;
-import com.codegym.dto.IDto.IReportAirlineType;
-import com.codegym.dto.IDto.IReportEmployee;
-import com.codegym.service.IReportService;
+import com.tramdt.dto.IDto.IReport;
+import com.tramdt.dto.IDto.IReportAirlineType;
+import com.tramdt.dto.IDto.IReportEmployee;
+import com.tramdt.service.IReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

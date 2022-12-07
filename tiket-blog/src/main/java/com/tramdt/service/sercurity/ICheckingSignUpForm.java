@@ -1,6 +1,6 @@
-package com.codegym.service.sercurity;
+package com.tramdt.service.sercurity;
 
-import com.codegym.model.SignForm;
+import com.tramdt.model.SignForm;
 
 public interface ICheckingSignUpForm {
     String checkPs(SignForm form);

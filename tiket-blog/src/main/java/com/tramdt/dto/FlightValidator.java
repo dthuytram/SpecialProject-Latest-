@@ -1,7 +1,7 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
-import com.codegym.dto.IDto.ValidatorFlight;
-import com.codegym.service.IFlightService;
+import com.tramdt.dto.IDto.ValidatorFlight;
+import com.tramdt.service.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;

@@ -1,9 +1,9 @@
-package com.codegym.dto.IDto;
+package com.tramdt.dto.IDto;
 
 
-import com.codegym.model.Customer;
-import com.codegym.model.Employee;
-import com.codegym.model.Seat;
+import com.tramdt.model.Customer;
+import com.tramdt.model.Employee;
+import com.tramdt.model.Seat;
 
 import javax.persistence.*;
 

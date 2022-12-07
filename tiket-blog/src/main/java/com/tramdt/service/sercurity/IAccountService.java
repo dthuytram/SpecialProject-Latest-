@@ -1,9 +1,16 @@
-package com.codegym.service.sercurity;
+package com.tramdt.service.sercurity;
 
-import com.codegym.model.Account;
+import com.tramdt.dto.TokenDto;
+import com.tramdt.model.Account;
+import com.tramdt.model.Customer;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public interface IAccountService {
     Account findAccountByEmail(String email);
+
+
+    Account findByEmail(String email);
+
     Boolean existAccountByEmail(String email);
     Boolean existAccountByPhone(String phone);
     Boolean existAccountByIdCard(String idCard);

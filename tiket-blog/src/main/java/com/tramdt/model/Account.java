@@ -1,6 +1,7 @@
-package com.codegym.model;
+package com.tramdt.model;
 
 import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,6 +48,14 @@ public class Account {
         this.idCard = idCard;
         this.country = country;
         this.roles = roles;
+    }
+
+    public Account(String email, String encode, Set<Role> setA, String birthday, Boolean gender1) {
+        this.email = email;
+        this.confirmPassword = encode;
+        this.birthday = birthday;
+        this.gender = gender1;
+        this.roles = setA;
     }
 
     public Long getId() {

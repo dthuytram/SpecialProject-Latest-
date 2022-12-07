@@ -1,4 +1,4 @@
-package com.codegym.dto;
+package com.tramdt.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

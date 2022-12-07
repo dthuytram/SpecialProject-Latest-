@@ -1,12 +1,12 @@
-package com.codegym.service.impl;
+package com.tramdt.service.impl;
 
-import com.codegym.dto.FlightDto;
-import com.codegym.dto.IDto.FlightDTO;
-import com.codegym.dto.IDto.FlightSearchDto;
-import com.codegym.dto.IDto.IFlightDto;
-import com.codegym.model.Flight;
-import com.codegym.repository.IFlightRepository;
-import com.codegym.service.IFlightService;
+import com.tramdt.dto.FlightDto;
+import com.tramdt.dto.IDto.FlightDTO;
+import com.tramdt.dto.IDto.FlightSearchDto;
+import com.tramdt.dto.IDto.IFlightDto;
+import com.tramdt.model.Flight;
+import com.tramdt.repository.IFlightRepository;
+import com.tramdt.service.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
@@ -34,13 +34,12 @@ public class FlightServiceImpl implements IFlightService {
         System.out.println("arrivalDestination: " + arrivalDestination);
         System.out.println("arrivalDate: " + arrivalDate);
         System.out.println("sortOption: " + sortOption);
-        arrivalDate = "2022-10-22";
         departure = repository.searchFlight(departureDestination, arrivalDestination, departureDate, "",  pageable);
         System.out.println("depart: {}" );
 
         searchFlightList.put("oneway", departure);
 
-        arrival = repository.searchFlight(arrivalDestination, departureDestination, "", arrivalDate,  pageable);
+        arrival = repository.searchFlight(arrivalDestination, departureDestination,"", arrivalDate,  pageable);
         System.out.println("arrival: {}" + arrival) ;
         searchFlightList.put("twoway", arrival);
 
