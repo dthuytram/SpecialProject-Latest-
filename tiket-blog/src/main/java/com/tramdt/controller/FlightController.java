@@ -5,14 +5,17 @@ import com.tramdt.dto.FlightDtoCheck;
 import com.tramdt.dto.IDto.FlightDTO;
 import com.tramdt.dto.IDto.FlightSearchDto;
 import com.tramdt.dto.IDto.IFlightDto;
+import com.tramdt.model.Airport;
 import com.tramdt.model.Flight;
 import com.tramdt.model.FormSearch;
+import com.tramdt.service.AirportService;
 import com.tramdt.service.IAirlineTypeService;
 import com.tramdt.service.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -33,6 +36,8 @@ public class FlightController {
     private IFlightService flightService;
     @Autowired
     private IAirlineTypeService airlineTypeService;
+    @Autowired
+    private AirportService airportService;
 
     Map<String, Page<Flight>> searchFlightList;
 
@@ -64,6 +69,17 @@ public class FlightController {
         }
         return new ResponseEntity<>(flightPage, HttpStatus.OK);
     }
+
+    @GetMapping("/flight-schedule")
+    public ResponseEntity<Page<Flight>> getAllFlightSchedule(@PageableDefault(value = 8) Pageable pageable) {
+        Page<Flight> flightSchedulePage;
+        flightSchedulePage = flightService.findAllFlight(pageable);
+        if (flightSchedulePage == null) {
+            return new ResponseEntity<Page<Flight>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Page<Flight>>(flightSchedulePage, HttpStatus.OK);
+    }
+
 
     @GetMapping("/list-not-pagination")
     public ResponseEntity<Page<Flight>> getListFlightNotPagination(Pageable pageable) {
@@ -125,78 +141,6 @@ public class FlightController {
         }
         return new ResponseEntity<>(flightList, HttpStatus.OK);
     }
-
-//    @PostMapping("/searchAvailableFlight")
-//    public ResponseEntity<?> searchFlight(@RequestBody FormSearch formSearch) {
-//        System.out.println(formSearch);
-//        if (formSearch.getSearchOption().equals("oneway")) {
-//            if (formSearch.getFromFlight() == null
-//                    || formSearch.getFromFlight().equals("")
-//                    || formSearch.getDateStart() == null
-//                    || formSearch.getDateStart().equals("")
-//                    || formSearch.getToFlight() == null
-//                    || formSearch.getToFlight().equals("")
-//                    || formSearch.getDateEnd() == null
-//                    || formSearch.getDateEnd().equals("")) {
-//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//            }
-//            switch (formSearch.getSortOption()) {
-//                case "price_airline":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(),  pageable);
-//                    break;
-//                case "date_start":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(),  pageable);
-//                    break;
-//                case "image_airline":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(),  pageable);
-//                    break;
-//                default:
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(),  pageable);
-//            }
-//            if (searchFlightList.get("oneway").getSize() == 0) {
-//                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//            } else {
-//                return new ResponseEntity<>(searchFlightList, HttpStatus.OK);
-//            }
-//        } else if (formSearch.getSearchOption().equals("twoway")) {
-//            if (formSearch.getFromFlight() == null
-//                    || formSearch.getFromFlight().equals("")
-//                    || formSearch.getDateStart() == null
-//                    || formSearch.getDateStart().equals("")
-//                    || formSearch.getToFlight() == null
-//                    || formSearch.getToFlight().equals("")
-//                    || formSearch.getDateEnd() == null
-//                    || formSearch.getDateEnd().equals("")) {
-//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//            }
-//            switch (formSearch.getSortOption()) {
-//                case "price_airline":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(), "price_airline", pageable);
-//                    break;
-//                case "date_start":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(), "date_start", pageable);
-//                    break;
-//                case "image_airline":
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(), "image_airline", pageable);
-//                    break;
-//                default:
-//                    searchFlightList = flightService.searchFlight(formSearch.getFromFlight(), formSearch.getToFlight(), formSearch.getDateStart(),
-//                            formSearch.getDateEnd(), "from_flight", pageable);
-//            }
-//            if (searchFlightList.get("oneway").getSize() == 0 && searchFlightList.get("twoway").getSize() == 0) {
-//                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//            }
-//            return new ResponseEntity<>(searchFlightList, HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//    }
 
     @PostMapping("/searchAvailableFlight")
     public ResponseEntity<?> searchAvailableFlight(@RequestBody FormSearch formSearch) {
@@ -285,8 +229,11 @@ public class FlightController {
         return new ResponseEntity<>(flightPage, HttpStatus.OK);
     }
 
-//    tronghd create chuyến bay
-        @PostMapping("/create")
+    /**Thêm dữ liệu chuyến bay
+     * @param flightDto
+     * @return
+     */
+    @PostMapping("/create")
         public ResponseEntity<?> createFlight (@Valid @RequestBody FlightDto flightDto){
 //        if (bindingResult.hasErrors()) {
 //            return new ResponseEntity<>(bindingResult.getAllErrors().get(0).getDefaultMessage(),HttpStatus.NOT_ACCEPTABLE);
@@ -295,7 +242,7 @@ public class FlightController {
             return new ResponseEntity<Void>(HttpStatus.CREATED);
         }
 
-//    tronghd validate dữ liệu thêm mới
+
         @ResponseStatus(HttpStatus.BAD_REQUEST)
         @ExceptionHandler(MethodArgumentNotValidException.class)
         public Map<String, String> handleValidationExceptions (
@@ -338,5 +285,14 @@ public class FlightController {
             return new ResponseEntity<Void>(HttpStatus.CREATED);
         }
 
+    @GetMapping("/airport")
+    public ResponseEntity<List<Airport>> getAirports() {
+        List<Airport> airports = airportService.getAirports();
+        for (Airport a: airports) {
+            System.out.println("a:    === : ");
+            System.out.println( a);
+        }
+        return new ResponseEntity<>(airports, HttpStatus.OK);
+    }
 }
 

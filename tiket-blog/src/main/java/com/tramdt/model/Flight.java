@@ -1,6 +1,6 @@
 package com.tramdt.model;
 
-import com.tramdt.model.hotel.CityDefine;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 

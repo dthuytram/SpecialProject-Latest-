@@ -24,6 +24,10 @@ public class AirlineType {
     @OneToMany(mappedBy = "airlineType")
     private Set<Flight> flights;
 
+    @JsonBackReference(value = "airline_flight")
+    @OneToMany(mappedBy = "airlineType")
+    private Set<Flight> flightss;
+
     public AirlineType() {
     }
 

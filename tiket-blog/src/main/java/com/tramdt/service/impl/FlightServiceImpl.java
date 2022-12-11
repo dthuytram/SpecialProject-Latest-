@@ -33,14 +33,17 @@ public class FlightServiceImpl implements IFlightService {
         System.out.println("departureDestination: " + departureDestination);
         System.out.println("arrivalDestination: " + arrivalDestination);
         System.out.println("arrivalDate: " + arrivalDate);
-        System.out.println("sortOption: " + sortOption);
-        departure = repository.searchFlight(departureDestination, arrivalDestination, departureDate, "",  pageable);
-        System.out.println("depart: {}" );
 
+        sortOption =  "airline_type." + sortOption ;
+        System.out.println("sortOption: " + sortOption);
+        departure = repository.searchFlight(departureDestination, arrivalDestination, departureDate, "", sortOption, pageable);
+        System.out.println("depart: {}" );
+        System.out.println(departure);
         searchFlightList.put("oneway", departure);
 
-        arrival = repository.searchFlight(arrivalDestination, departureDestination,"", arrivalDate,  pageable);
-        System.out.println("arrival: {}" + arrival) ;
+        arrival = repository.searchFlight(arrivalDestination, departureDestination,"", arrivalDate, sortOption, pageable);
+        System.out.println("arrival: {}" ) ;
+        System.out.println(arrival);
         searchFlightList.put("twoway", arrival);
 
         return searchFlightList;

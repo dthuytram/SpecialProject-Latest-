@@ -19,12 +19,29 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface IFlightRepository extends JpaRepository<Flight, Long> {
-    @Query(value = "SELECT c FROM Flight c where c.fromFlight like %?1% and c.toFlight like %?2% and c.dateStart like %?3% and c.dateEnd  like %?4% ")
-    Page<Flight> searchFlight(String departureDestination,
-                                 String arrivalDestination,
-                                 String departureDate,
-                                 String arrivalDate,
-                                 Pageable pageable);
+    @Query(value = "select flight.id, airline_type.image_airline, " +
+            "flight.code_flight, " +
+            "flight.date_start, " +
+            "flight.date_end, " +
+            "airline_type.price_airline, " +
+            "flight.to_flight, " +
+            "flight.from_flight " +
+            "from flight " +
+            "left join airline_type " +
+            "on flight.id_airline_type = airline_type.id " +
+            "where flight.from_flight = :from_flight " +
+            "and flight.to_flight = :to_flight " +
+            "and flight.date_start " +
+            "like concat('%',:date_start,'%') " +
+            "and flight.date_end " +
+            "like concat('%',:date_end,'%') order by :sortOption ASC ",
+            nativeQuery = true)
+    Page<FlightSearchDto> searchFlight(@Param("from_flight") String departureDestination,
+                                       @Param("to_flight") String arrivalDestination,
+                                       @Param("date_start") String departureDate,
+                                       @Param("date_end") String arrivalDate,
+                                       @Param("sortOption") String sortOption,
+                                       Pageable pageable);
 
 
     List<Flight> findFlightsByDateStartContains(String date);
